@@ -1,51 +1,50 @@
+21/7/2016: All the comments are updated
+
+
 Feature: Digital Coupons feature
-
-General Comments:
-1) Please use an generic name for the pages 
-like below 
-       a) For CU when he clicks "coupons" from aisle navigate to " Coupons signup page "
-       b) After clicking "View available coupons" in Coupons signup page the user is navigated to " Coupons Landing page " 
-2) Please append the name as " Page validation " for the cases where we are specificaly validating the page elements in the scenario name itself
-
-
-@ReviewedOK
-@Priority1 @DigitalCoupons @TC01_CU_DC
-Scenario: DC_CU_All Coupons Coupns Page
-       Given I am a Cold User    
+       @Priority1 @DigitalCoupons @TC01_CU_DC
+       Scenario: DC_CU_Page Validation_Coupons Page
+       Given I am a Cold User
+       # Include steps Open App,
+	     # 1. Click "Continue without registering" from splash page
+	     # 2. Verifying the Cold User Home page    
        When I select Coupons from aisle
-       Then I see Coupons page
+       Then user is navigated to Coupons sign up page
        # Include verification of title - Coupons
        # 1.Includes steps for verifying Title, Digital Coupons video image, Display copy text, 
        # 2.followed by the following instructions: 1. Sign up  2. Select coupons  3. Redeem in store   
        # 3.Register and Log In buttons, with “View available coupons” link below.
 
-@Need to be changed
-
-@Priority1 @DigitalCoupons @TC02_CU_DC
-       Scenario: DC_CU_All Coupons page
-       Given I am a Cold User    
+       @Priority1 @DigitalCoupons @TC02_CU_DC
+       Scenario: DC_CU_Page Validation_All Coupons page
+       Given I am a Cold User
+       # Include steps Open App,
+	     # 1. Click "Continue without registering" from splash page
+	     # 2. Verifying the Cold User Home page    
        When I select Coupons from aisle
-       Then I see Coupons page
+       Then user is navigated to Coupons sign up page
        # Include verification of title - Coupons
-       Then I verfify all the properties of All Coupons page
-       #1.Includes Verification of "TOTAL AVAILABLE" tab selected by default
-       # 1.Includes steps for verifying Filter icon and "All  Coupons" Spinner.
-       # 2."TOTAL AVAILABLE", "SELECTED SAVINGS" and "SAVINGS-TO-DATE" tabs.
-       # 3.Below header display search bar with Register and login buttons
-       # 4.with all relevant coupons displayed below.
-## COMMENTS:  For cold user the user will be navigated to Coupons login/ Regsiter page with  "View available coupons" link and not hte actual
-Landing page . Hence please change accordingly 
+       When I click on View avaible coupons
+       Then user is navigated to coupons landing page
+       # 1.Include verification of title -"ALL COUPONS"
+       # 2.Includes Verification of "TOTAL AVAILABLE" tab selected by default
+       # 3.Includes steps for verifying Filter icon and "All  Coupons" Spinner.
+       # 4."TOTAL AVAILABLE", "SELECTED SAVINGS" and "SAVINGS-TO-DATE" tabs.
+       # 5.Below header display search bar with Register and login` buttons
+       # 6.With all relevant coupons displayed below.
+       # 7.Includes Verification of "TOTAL AVAILABLE" tab selected by default
 
-@Need to be changed
-
-@Priority3 @DigitalCoupons @TC03_DC_CU
-Scenario: DC_CU_All Coupons_Verify Coupon Details Format
+       @Priority3 @DigitalCoupons @TC03_DC_CU
+       Scenario: DC_CU_All Coupons_Verify Coupon Details Format
        Given I am a cold user
+       # Include steps Open App,
+	     # 1. Click "Continue without registering" from splash page
+	     # 2. Verifying the Cold User Home page
        When I select Coupons from aisle
-       Then I see Coupons page
+       Then user is navigated to Coupons sign up page
        # Include verification of title - Coupons
        When I click View available coupons
-       Then I see All Coupons page
+       Then user is navigated to coupons landing page
        # Include verification of title - ALL COUPONS
        And I verify coupon cell format
        # 1.Includes steps for verifying Coupon is Formated as:
@@ -56,16 +55,17 @@ Scenario: DC_CU_All Coupons_Verify Coupon Details Format
        When I click first coupon row
        Then I verify Coupons Details page
        When I select device back button
-       Then I see All Coupons page
-## COMMENTS: 1) Change the page names as mentioned in the general comments 
-              
-              
-@ReviewedOK
-@Priority3 @DigitalCoupons @TC04_DC_CU
-Scenario: DC_CU_All Coupons Confirm  Digital Coupons Video Works
-       Given I am a Cold User     
+       Then user is navigated to Coupons landing page
+       # 1.Include verification of title -"ALL COUPONS"
+                         
+       @Priority3 @DigitalCoupons @TC04_DC_CU
+       Scenario: DC_CU_All Coupons Confirm  Digital Coupons Video Works
+       Given I am a Cold User
+       # Include steps Open App,
+	     # 1. Click "Continue without registering" from splash page
+	     # 2. Verifying the Cold User Home page     
        When I select Coupons from aisle
-       Then I see Coupons page
+       Then user is navigated to coupons sign up page
        # Include verification of title - Coupons
        When I play the video
        Then I see video begins to play
@@ -78,7 +78,7 @@ Scenario: DC_CU_All Coupons Confirm  Digital Coupons Video Works
        # 2.Message as "Are you sure you want to cancel registration?"
        # 3.No and yes buttons
        When I select the Yes
-       Then I see Coupons page
+       Then user is navigated to Coupons sign up page
        When I select Login button
        Then I see a pop up dialog to log in
        # 1.Includes verification of Header as Login
@@ -87,22 +87,23 @@ Scenario: DC_CU_All Coupons Confirm  Digital Coupons Video Works
        # 4.forgot password link
        # 5.Cancel and Login button.
        When I select Cancel button
-       Then I see Coupons page
+       Then I see Coupons sign up page
        
 
-@Need to be changed
-@Priority2 @DigitalCoupons @TC05_CU_DC
-Scenario: DC_CU_All Coupons Filter Coupons 
-       Given I am a Cold User    
-       When I select Coupons from left-hand navigation menu
-       Then I see Coupons page
+       @Priority2 @DigitalCoupons @TC05_CU_DC
+       Scenario: DC_CU_All Coupons Filter option 
+       Given I am a Cold User
+       # Include steps Open App,
+	     # 1. Click "Continue without registering" from splash page
+	     # 2. Verifying the Cold User Home page    
+       When I select Coupons from aisle
+       Then user is navigated to Coupons sign up page
        # Include verification of title - Coupons
        When I click View available coupons
-       Then I see All Coupons page
+       Then user is navigated to Coupons landing page
        # Include verification of title - ALL COUPONS
        When I select Filter icon in right-hand of action bar
        Then I see Scrolling selectors appears with sort options
-       # 1.Includes verification of Default,Newest,Highest Value,Expiration Date and Popularity options
        Then I see Scrolling selector list appears with "Default" selected options
        When I select "Newest" sort option
        Then I see Coupons page is rearranged in the order of newly selected sort "Newest"
@@ -118,19 +119,18 @@ Scenario: DC_CU_All Coupons Filter Coupons
        Then I see Scrolling selector list appears with "Expiration Date" selected options
        When I select "Popularity" sort option
        Then I see Coupons page is rearranged in the order of newly selected sort "Popularity"	
-       
-## COMMENTS: 1) Change the page names as mentioned in the general comments       
-       
-       
-@Need to be changed       
-@Priority1 @DigitalCoupons @TC06_CU_DC
- Scenario: DC_CU_All Coupons Activate Category Spinner 
-       Given I am a Cold User    
+            
+       @Priority1 @DigitalCoupons @TC06_CU_DC
+       Scenario: DC_CU_All Coupons Activate Category Spinner 
+       Given I am a Cold User
+       # Include steps Open App,
+	     # 1. Click "Continue without registering" from splash page
+	     # 2. Verifying the Cold User Home page    
        When I select Coupons from aisle
-       Then I see Coupons page
+       Then user is navigated to Coupons sign up page
        # Include verification of title - Coupons
        When I click View available coupons
-       Then I see All Coupons page
+       Then user is navigated to Coupons landing page
        # Include verification of title - ALL COUPONS
        When I select spinner from action bar
        # Action bar - Indicated by grey triangle to the right of category name
@@ -140,18 +140,18 @@ Scenario: DC_CU_All Coupons Filter Coupons
        Then I see Coupons screen
        # 1.Selected category name is displayed the action bar title
        # 2.Coupons displayed on screen are only those within selected categoryy.
-
-## COMMENTS: 1) Change the page names as mentioned in the general comments
-   
-@Need to be changed   
-@Priority1 @DigitalCoupons @TC07_CU_DC
+ 
+       @Priority1 @DigitalCoupons @TC07_CU_DC
        Scenario: DC_CU_All Coupons Activate Category Search
-       Given I am a Cold User    
+       Given I am a Cold User
+       # Include steps Open App,
+	     # 1. Click "Continue without registering" from splash page
+	     # 2. Verifying the Cold User Home page    
        When I select Coupons from aisle
-       Then I see Coupons page
+       Then user is navigated to Coupons sign up page
        # Include verification of title - Coupons
        When I click View available coupons
-       Then I see All Coupons page
+       Then user is navigated to Coupons landing page
        # Include verification of title - ALL COUPONS
        When I click on "Search Coupons" field
        Then Keyboard appears at bottom of screen
@@ -167,54 +167,18 @@ Scenario: DC_CU_All Coupons Filter Coupons
        And I see placeholder text as "Search Coupons"
        And I see Coupons page is displayed as previously viewed
        # Verification of coupons page with prior to searching
-
-## COMMENTS: 1) Change the page names as mentioned in the general comments
-
-@Need to be changed
-@Priority3 @DigitalCoupons @TC08_HU_DC       
-Scenario: DC_HU_Not Verified_All Coupons_Coupon Details, Selected Savings Pop up
-       Given I am a Hot User but has not yet verified their mobile Phone# for Digital Coupons.
-       # Includes steps 
-       # 1. open application and 
-       # 2. Register a new user
-       When I select Coupons from left-hand navigation menu
-       Then I see Coupons page
+        
+       @Priority2 @DigitalCoupons @TC08_CU_DC   
+       Scenario: DC_CU_Page Validation_Coupons Details page
+       Given I am a Cold User
+       # Include steps Open App,
+	     # 1. Click "Continue without registering" from splash page
+	     # 2. Verifying the Cold User Home page      
+       When I select Coupons from aisle
+       Then user is navigated to Coupons sign up page
        # Include verification of title - Coupons
        When I click View available coupons
-       Then I see All Coupons page
-       # Include verification of title - ALL COUPONS
-       And I verify coupon cell format
-       When I click first coupon row
-       Then I verify Coupons Details page
-       When I select device back button
-       Then I see All Coupons page
-       # Include verification of title - ALL COUPONS
-       When I select "Selected Savings" tab.
-       Then I see a pop up as Sign Up or Log in
-       # Includes steps to verify
-       # 1. Header: Sign Up or Log in
-       # 2. Dialogue box reads Please sign up or log in to access this feature.
-       # 3. "Ok" button.
-       When I select "Savings-To-Date" tab
-       Then I see a pop up as Sign Up or Log in
-       # Includes steps to verify
-       # 1. Header: Sign Up or Log in
-       # 2. Dialogue box reads Please sign up or log in to access this feature.
-       # 3. "Ok" button.
-
-## COMMENTS: 1) Change the page names as mentioned in the general comments
-              2) the above user is an Hot user and placed here ? Any specifc reasons ? Re-check on this whether its covered already
-    
-
-@Need to be changed    
-@Priority2 @DigitalCoupons @TC09_CU_DC   
-Scenario: DC_CU_All Coupons_Share Coupon Details
-       Given I am a Cold User      
-       When I select Coupons from left-hand navigation menu
-       Then I see Coupons page
-       # Include verification of title - Coupons
-       When I click View available coupons
-       Then I see All Coupons page
+       Then user is navigated to Coupons landing page
        # Include verification of title - ALL COUPONS
        When I click on a specific coupon row
        Then I verify Coupons Details page
@@ -229,182 +193,5 @@ Scenario: DC_CU_All Coupons_Share Coupon Details
        Then I see social apps
        #1.Includes Facebook,Twitter,Email
        #2.Social apps must be installed on the device to be presented as an option.
-## COMMENTS: 1) Change the page names as mentioned in the general comments
-
-
- @Need to be changed
  
-@Priority3 @DigitalCoupons @TC010_HU_DC       
-Scenario: DC_HU_Enrolled_Coupons Coupon Details And Selected Savings Tab
-       Given I am a hot user and enrolled in Digital Coupons
-       # Includes steps 
-       # 1. open application and 
-       # 2. Register a new user
-       When I select Coupons from left-hand navigation menu
-       Then I see Coupons page
-       # Include verification of title - Coupons
-       When I click View available coupons
-       Then I see All Coupons page
-       # Include verification of title - ALL COUPONS
-       And I verify coupon cell format
-       When I click on a specific coupon row
-       Then I verify Coupons Details page
-       When I select "Select" button
-       Then I see application will display a toast with message "coupon selected, button becomes disabled and now reads Selected"
-       And  I verify if coupon is saved to user's account as selected
-       # 1.Selected coupon should be displayed in "SELECTED-SAVINGS" tab.
-       # 2.Includes Verification if selected savings value is incrementing correctly
-       # 3.If coupon have a saving value, application should increment selected saving value by that number.
-       When I select device back button
-       Then I see All Coupons page
-       # Include verification of title - ALL COUPONS
-       When I select "Select Savings" tab
-       Then I see SELECTED SAVINGS tab screen
-       # 1.Title that reads: Selected
-       # 2.Below header section, display all relevant coupons.
-       # 3.Coupon row will display a check box on left corner of the row.
-       # 4.Application should display the correct value for savings."
-       When I select "Savings-To-Date" tab
-       Then I see Savings-To-Date tab screen
-       # 1.Title that reads: Savings-To-Date
-       # 2.Application will display 30 day history only.
-       # 3.savings-to-date tab will display savings till date.
-
-## COMMENTS: 1) Change the page names as mentioned in the general comments
-##              2) the above user is an Hot user and placed here ? Any specifc reasons ? Re-check on this whether its covered already
-       
-       
-
-@ReviewedOK   
-@Priority3 @DigitalCoupons @TC011_HU_DC
-Scenario: DC_HU_Not Enrolled_Overview Confirm Digital Coupon Video
-       Given I am a Hot User and not yet signed up for Digital Coupons.
-       # Includes steps
-       # 1. open application and
-       # 2. Register a new user without signing up for DC
-       When I select Coupons from aisle
-       Then I see Coupons page
-       # Include verification of title - Coupons
-       When I play the video
-       Then I see video begins to play
-       And  I wait till video has finished
-       When I select "Sign Up Now" button in coupons overview screen.
-       Then I see screen is displayed with options :
-       # 1.Text edit for Mobile Number
-       # 2.Text edit for Confirm Mobile Number
-       # 3.Text edit for 4 digit pin
-       # 4.check box for terms and condition
-       # 5.check box for I want more deals
-       And I verify if user can enter valid values in all required field
-       # 1.Includes user should be able to enter valid values in required fields.
-       # 2.user should be able to check the check box.
-       When I select arrow icon at right corner of navigation bar
-       Then I see pop up as Check your phone Now
-       When I select Start Saving
-       Then I see Coupons page
-       When I click View available coupons
-       Then I see All Coupons page
-@ReviewedOK      
-@Priority1 @DigitalCoupons @TC012_HU_DC
-Scenario: DC_HU_Not Enrolled_Coupons Sign Up On All Coupons Page
-       Given I am a Hot User
-       #Signed in
-       When I select Coupons from left-hand navigation menu
-       Then I see Coupons page
-       # Include verification of title - Coupons
-       When I click View available coupons
-       Then I see All Coupons page
-       # Include verification of title - ALL COUPONS
-       When I select "Sign Up Now" button in coupons overview screen
-       Then I see screen is displayed with options
-       And I verify if user can enter valid values in all required field
-       When I select arrow icon at right corner of navigation bar
-       Then I see pop up as Check your phone Now
-       # Includes verification of 
-       # 1. Header: Check your phone Now
-       # 2. Pop up shows a message Please check your mobile phone now and reply to the H-E-B
-       #    text message to activate your H-E-B Digital coupons.
-       # 3. button with 'start saving text'
-@ReviewedOK       
-@Priority2 @DigitalCoupons @TC013_HU_DC
-Scenario: DC_HU_Not Enrolled_All Coupons_Coupon Details_with_Term and Conditions
-       Given I am a Hot User and not yet signed up for Digital Coupons
-       # Includes steps
-       # 1. open application and
-       # 2. Register a new user
-       When I select Coupons from aisle
-       Then I see Coupons page
-       # Include verification of title - Coupons
-       When I click View available coupons
-       Then I see All Coupons page
-       # Include verification of title - ALL COUPONS
-       When I click on a specific coupon row
-       Then I verify Coupons Details page
-       When I select "Sign Up Now" button in coupons overview screen
-       Then I see screen is displayed with options :
-       # 1.Text edit for Mobile Number
-       # 2.Text edit for Confirm Mobile Number
-       # 3.Text edit for 4 digit pin
-       # 4.check box for terms and condition
-       # 5.check box for I want more deals
-
-@Need to be changed         
-@priority2 @DigitalCoupons @TC014_HU_DC
-Scenario: DC_HU_Not Enrolled_All Coupons_Sign Up without entering details
-       Given I am a Hot User and not yet signed up for Digital Coupons
-       # Includes steps
-       # 1. open application and
-       # 2. Register a new user
-       When I select Coupons from aisle
-       Then I see Coupons page
-       # Include verification of title - Coupons
-       When I click View available coupons
-       Then I see All Coupons page
-       # Include verification of title - ALL COUPONS
-       When I click on a specific coupon row
-       Then I verify Coupons Details page
-       When I select "Sign Up Now" button in coupons overview screen
-       Then I see Sign Up for Digital Coupons page
-       When I Select Arrow icon at right corner of navigation bar 
-       # 1.with no input for Mobile Number and 4-Digit PIN
-       Then I see All the mandatory fields will be highlighted with info icon
-       When I select Info Icon
-       Then I see a pop up with related information
-       # And I see checkbox is checked after clicking on Info icon
-## comments : Change the Scenario name like page validation validating Error message or Negative validation related  
-
-@ReviewedOK              
-@Priority2 @DigitalCoupons @TC015_HU_DC
-Scenario: DC_HU_Not Enrolled_All Coupons_Sign Up with valid details
-      Given I am a Hot User and not yet signed up for Digital Coupons
-       # Includes steps
-       # 1. open application and
-       # 2. Register a new user
-       When I select Coupons from aisle
-       Then I see Coupons page
-       # Include verification of title - Coupons
-       When I click View available coupons
-       Then I see All Coupons page
-       # Include verification of title - ALL COUPONS
-       When I click on a specific coupon row
-       Then I verify Coupons Details page
-       When I select "Sign Up Now" button in coupons overview screen
-       Then I see Sign Up for Digital Coupons page
-       When When I enter valid 10 digit number in Mobile Number and Confirm Mobile Number field
-       Then I see user should be able to enter same number in both the field
-       When I enter 4 digit pin
-       Then I see user should be able to enter 4 digit pin
-       When I select check box next to "I want more deals ..."  text
-       Then I see box shall contain a blue check mark
-       When I select arrow icon
-       Then I see pop up as Check your phone Now
-       # Includes verification of 
-       # 1. Header: Check your phone Now
-       # 2. Pop up shows a message Please check your mobile phone now and reply to the H-E-B
-       #    text message to activate your H-E-B Digital coupons.
-       # 3. button with 'start saving text'
-       When I select Start Saving
-       Then I see Coupons page     
-       When I click View available coupons
-       Then I see All Coupons page
-       # Include verification of title - ALL COUPONS    
+      
