@@ -1,5 +1,6 @@
+27/07/2016: Android_Store Locator
+
 Feature: Store Locator feature
-	
 
 @Priority3 @StoreLocator @TC01_SL_CU
 Scenario: SL_Cold_Page elements validation_Store Locator screen_Map View
@@ -553,4 +554,42 @@ Scenario: SL_Hot_Verify user can navigate and select store using Refine option
 		# 3. Includes Set as your Store link / My H-E-B store link
 		# 4. Includes View Weekly Ad, See Store Features link
 		# 5. Includes pharmacy hours and phone # (only displayed if selected store has a Pharmacy)
+		
+@Priority1 @StoreLocator @TC17_SL_HU
+Scenario: SL_Hot_Verify user can change their HEB store from store locator
+	Given I am a Hot User
+		# Includes steps 
+		# 1. open application and 
+		# 2. Login as an user
+	When I click on Store Locator from aisle
+	Then I see Store Locator screen in map view focusing on user's current location
+		# 1. Includes verification of Title as "Store Locator"
+	When I click on Search Field label
+	Then I see keyboard
+	When I enter <Texas City>
+	When I click Search button on keyboard
+	Then I see Store Locator screen in map view for the selected City
+	# 1. Includes verification of Hamburger sign on the left hand of action bar
+	# 2. Title should be Store Locator
+	# 3. List icon on right-side of action bar
+	# 4. Refine button on right-side of action bar
+	# 5. Below Navigation bar Search Text field  and Target icon below it
+	# 6. Includes verification of map focus on searched <Texas City>
+	When I select a store from Map view
+	Then I see White information bubble
+	# 1. Includes verification of <Street Address> and <Store Name>
+	When I click on white information bubble
+	Then I see Store Details screen of hot user
+	# 1. Includes Store Name + Address, Get Directions link, Store Hours (Opening - Closing)and store phone number
+	# 2. Includes View Weekly Ad, See Store Features link
+	# 3. Includes pharmacy hours and phone # (only displayed if selected store has a Pharmacy)
+	# 4. Includes verification of My H-E-B Store/Set as My Store link
+	When I click Set as My Store link
+	Then I see Set As My Store Option changes to My HEB Store
+	# 1. Includes Login Required pop up validation when multiple users are logged in
+	# 2. and mobile device is inactive for 30 minutes
+	When I select Hamburger Menu
+	When I scroll down
+	Then I see selected HEB store is updated as my store
+	# Includes comparison and verification of HEB store details
 	
