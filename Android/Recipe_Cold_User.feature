@@ -1,31 +1,51 @@
-Feature: H-E-B Cart page feature
+27/07/2016: Anroid_Recipe_Cold
+Feature: H-E-B Cart page feature for Recipe page in Andriod device
 
-General comments :
-1) Include "Page validation " keyword for the scenarios which has an page element validation
-2) Maintain Unique scenario name for each cases 
-
-
-@Need to be Changed 
 @Priority2 @Recipe @TC01_RECI_CU
-Scenario: Recipe_Cold_User verify user can search a valid recipe in recipe search bar
+Scenario: Recipe_Cold_User Recipe home page validation of all the elements
 	Given I am a cold user
 	# Include steps Open App,
 	# 1. Click "Continue without registering" button
 	# 2. Verifying the Cold User Home page
 	When I click Recipes from aisle
 	Then I should see Recipes page
-	# Include verification of Title - Receipe	
+	# Include verification of Recipes page	
 	# 1. Navigation bar should be titled as "Recipes"
 	# 2. Hamburger icon should appear in the left-hand corner of action bar
 	# 3. Recipe box icon should appear in the right-hand corner of action bar
-	# 4. Search bar should be displayed below action bar
+	# 4. Search bar should be displayed below navigation bar
 	# 5. Search bar should be displayed with default text as "Search or Scan Products" 
 	# 6. Content image should be displayed below search bar
 	# 7. "Quick Recipe Finder" button should be displayed at the bottom of the page.
-### COMMENT : Change the Scenario name 
-@ReviewedOK	
+
 @Priority2 @Recipe @TC02_RECI_CU
-Scenario: Recipe_Cold_User verify user can search a valid recipe in recipe search bar
+Scenario: Recipe_Cold_User Navigation menu slides label validation
+	Given I am a cold user
+	# Include steps Open App,
+	# 1. Click "Continue without registering" button
+	# 2. Verifying the Cold User Home page
+	When I click Recipes from aisle
+	Then I should see Recipes page
+	# Include verification of Title - Recipes	
+	When I click hamburger icon
+	Then I should see Left-hand navigation menu slides
+	# Include verification of labels in the navigation slides
+	# 1.Why Sign Up?
+	# a. Digital Coupons b.Recipe Box c. Manage Prescriptions d. Shopping Lists
+	# a1.Register and Login Button
+	# 2. Home
+	# 3. Weekly Ad
+	# 4. Digital Coupons
+	# 5. Products
+	# 6. Shopping Lists
+	# 7. Mobile Wallet(if store has feature)
+	# 8. Recipes
+	# 9. Pharmacy
+	# 10. Store Locator	
+	# 11.Settings
+	
+@Priority2 @Recipe @TC03_RECI_CU
+Scenario: Recipe_Cold_User Recipe page validation by giving valid input in recipe search bar
 	Given I am a cold user
 	# Include steps Open App,
 	# 1. Click "Continue without registering" button
@@ -33,6 +53,12 @@ Scenario: Recipe_Cold_User verify user can search a valid recipe in recipe searc
 	When I click Recipes from aisle
 	Then I should see Recipes page
 	# Include verification of Title - Recipe
+	When I click search term within search text field 	
+	Then I should see Search screen
+	# Includes verification of Search screen page
+	# 1. Page should be displayed with Search text field and Cancel button
+	# 2. Scan Product button should be displayed
+	# 3. Keyboard at bottom of the screen should be displayed
 	When I type valid search term within search text field 
 	And I select click search button in keyboard
 	Then I validate all the properties in Recipes List page
@@ -45,60 +71,7 @@ Scenario: Recipe_Cold_User verify user can search a valid recipe in recipe searc
 	# 5. Refine button in the right area should be displayed	
 	# 6. Displayed with search results as: <recipe image> and <recipe name> <ratings(if any)>
 
-@Need to remove
-@Priority2 @Recipe @TC03_RECI_CU
-Scenario: Recipe_Cold_User verify user can navigate to Search text field
-	Given I am a cold user
-	# Include steps Open App,
-	# 1. Click "Continue without registering" button
-	# 2. Verifying the Cold User Home page
-	When I click Recipes from aisle
-	Then I should see Recipes page
-	# Include verification of Title - Receipe
-	When I click search term within search text field 	
-	Then I should see Search screen
-	# Includes verification of Search screen page
-	# 1. Page should be displayed with Search text field and Cancel button
-	# 2. Scan Product button should be displayed
-	# 3. Keyboard at bottom of the screen should be displayed
-### comment : combine with TC02
-
-@Need to remove	
-@Priority2 @Recipe @TC04_RECI_CU
-Scenario: Recipe_Cold_User verify user can navigate to Search text field
-	Given I am a cold user
-	# Include steps Open App,
-	# 1. Click "Continue without registering" button
-	# 2. Verifying the Cold User Home page
-	When I click Recipes from aisle
-	Then I should see Recipes page
-	# Include verification of Title - Receipe
-	When I click search term within search text field 	
-	Then I should see Search screen
-	# Includes verification of Search Recipe screen
-	When I click "X" icon in the search bar
-	Then I should see Recipes page
-	# Include verify the hamburger icon
-	When I select hamburger icon
-	Then I should Left-hand navigation menu slides
-	# Include verification of labels in the navigation slides
-	# 1. "Home"
-	# 2. "Weekly Ad"
-	# 3. "Coupons"
-	# 4. "Products"
-	# 5. "Shopping Lists"
-	# 6. "Mobile Wallet"(if store has faeture)
-	# 7. "Recipes"
-	# 8. "Pharmacy"
-	# 9. "Store Locator"
-	# 10. Static Cold User Text
-	# 11. Settings
-
-### COMMENT : on clicking "X" icon we cant see hamburger icon in the left , we need to click device back button or click "<-" back arrow
- # pls change accordingly
-
-@Need to be changed
-@Priority1 @Recipe @TC05_RECI_CU
+@Priority1 @Recipe @TC04_RECI_CU
 Scenario: Recipe_Cold_User verify user can select background image on recipe landing screen
 	Given I am a cold user
 	# Include steps Open App,
@@ -106,25 +79,30 @@ Scenario: Recipe_Cold_User verify user can select background image on recipe lan
 	# 2. Verifying the Cold User Home page
 	When I click Recipes from aisle
 	Then I should see Recipes page
-	# Include verification of Title - Receipe
-	And I verify Content image
+	# Include verification of Title - Recipes
+	And I verify Content image below navigation bar
 	# Includes verifying Content image
-	# 1. Content image should be displayed as configured (in BCC) on Recipes Landing page
-	When I select background image on Landing page
+	# 1. Image should be displayed below search bar in Recipes Landing page
+	When I select background image on Recipes Landing page
 	Then I validate all the properties in Recipes List page
-	# Includes verification of title Recipe in the navigation bar
-##COMMENT: need to be more specific and a valid functionality 
+	# Includes verification of recipes list page
+	# 1. Recipes as the Navigation bar title
+	# 2. Hamburger icon in the left hand corner of navigation bar
+	# 3. Recipe box in the right hand corner of navigation bar		
+	# 4. Below navigation bar display red area, with "<#> recipes for <searched term>"  
+	#    displayed correctly in the left side of the red section 
+	# 5. Refine button in the right area should be displayed	
+	# 6. Displayed with search results as: <recipe image> and <recipe name> <ratings(if any)>
 
-@ReviewedOK	
-@Priority2 @Recipe @TC06_RECI_CU
-Scenario: Recipe_Cold_User can navigate to Quick Recipe Finder
+@Priority2 @Recipe @TC05_RECI_CU
+Scenario: Recipe_Cold_User verify user can navigate to Quick Finder search
 	Given I am a cold user
 	# Include steps Open App,
 	# 1. Click "Continue without registering" button
 	# 2. Verifying the Cold User Home page
 	When I click Recipes from aisle
 	Then I should see Recipes page
-	# Include verification of Title - Receipe
+	# Include verification of Title - Recipes
 	When I click Quick Recipe Finder button 
 	Then I should see the Find Recipes page
 	# Includes verification of Quick Recipe Finder page
@@ -139,16 +117,15 @@ Scenario: Recipe_Cold_User can navigate to Quick Recipe Finder
 	When I select device back button
 	Then I should see previous page
 	
-@ReviewedOK	
-@Priority2 @Recipe @TC07_RECI_CU
-Scenario: Recipe_Cold_User can navigate to Advanced search
+@Priority2 @Recipe @TC06_RECI_CU
+Scenario: Recipe_Cold_User Advanced segment page validation in Find Recipes
 	Given I am a cold user
 	# Include steps Open App,
 	# 1. Click "Continue without registering" button
 	# 2. Verifying the Cold User Home page
 	When I click Recipes from aisle
 	Then I should see Recipes page
-	# Include verification of Title - Receipe
+	# Include verification of Title - Recipes
 	When I click Quick Recipe Finder button 
 	Then I should see the Find Recipes page	
 	When I click Advanced button
@@ -161,30 +138,28 @@ Scenario: Recipe_Cold_User can navigate to Advanced search
 	# 5. Search criteria should have : <category header> and <search term> (row for each term within category)	
 	When I select device back button
 	Then I should see previous page
-
-@ReviewedOK	
-@Priority1 @Recipe @TC08_RECI_CU
-Scenario: 011 Recipe_Cold_User can Scan Product in recipe search
+	
+@Priority1 @Recipe @TC07_RECI_CU
+Scenario: 011 Recipe_Cold_User verify user can Scan Product in recipe search
 	# Include steps Open App,
 	# 1. Click "Continue without registering" button
 	# 2. Verifying the Cold User Home page
 	When I click Recipes from aisle
 	Then I should see Recipes page
-	# Include verification of Title - Receipe
+	# Include verification of Title - Recipes
 	When I type Product catlog or direct product search 
 	Then I should see Search Results page	
 	# Includes verification of title Recipe in the navigation bar
 
-@ReviewedOK	
-@Priority3 @Recipe @TC09_RECI_CU
-Scenario: Recipe_Cold_User can find the ingredients in the recipe detail page
+@Priority3 @Recipe @TC08_RECI_CU
+Scenario: Recipe_Cold_User verify user can find the ingredients in the recipe details page
 	Given I am a cold user
 	# Include steps Open App,
 	# 1. Click "Continue without registering" button
 	# 2. Verifying the Cold User Home page
 	When I click Recipes from aisle
 	Then I should see Recipes page
-	# Include verification of Title - Receipe
+	# Include verification of Title - Recipes
 	When I type valid search term within search text field 
 	And I select click search button in keyboard
 	Then I validate all the properties in Recipes List page
@@ -192,7 +167,7 @@ Scenario: Recipe_Cold_User can find the ingredients in the recipe detail page
 	When I select recipe image within the recipe row
 	Then I should see recipe details page
 	# Include verification of Image below navigation bar
-	And I verify ingredients details
+	And I should verify ingredients details
 	# Include verification of ingredients details
 	# 1. Label text "Ingredients" should be displayed below segmented tabs
 	# 2. Recipe ingredients should be displayed preceeded with an empty checkbox field
@@ -204,16 +179,15 @@ Scenario: Recipe_Cold_User can find the ingredients in the recipe detail page
 	# 8. Each review should be displayed with <review title>,<rating>,<reviewer name>
 	# <Reviewed on Date>,<review body text> and "Read more" enabled text	
 
-@ReviewedOK
-@Priority3 @Recipe @TC10_RECI_CU
-Scenario: Recipe_Cold_User can navigate to the instructions tab in the recipe detail page
+@Priority3 @Recipe @TC09_RECI_CU
+Scenario: Recipe_Cold_User verify user can navigate to the instructions tab in the recipe details page
 	Given I am a cold user
 	# Include steps Open App,
 	# 1. Click "Continue without registering" button
 	# 2. Verifying the Cold User Home page
 	When I click Recipes from aisle
 	Then I should see Recipes page
-	# Include verification of Title - Receipe
+	# Include verification of Title - Recipes
 	When I type valid search term within search text field 
 	And I select click search button in keyboard
 	Then I validate all the properties in Recipes List page
@@ -231,16 +205,15 @@ Scenario: Recipe_Cold_User can navigate to the instructions tab in the recipe de
 	# 5. Each review should be displayed with <review title>,<rating>,<reviewer name>
 	#    <Reviewed on Date>,<review body text> and "Read more" enabled text
 
-@ReviewedOK
-@Priority3 @Recipe @TC11_RECI_CU
-Scenario: Recipe_Cold_User can navigate to the nutrition view tab
+@Priority3 @Recipe @TC10_RECI_CU
+Scenario: Recipe_Cold_User verify user can navigate to the nutrition view tab in the recipe details page
 	Given I am a cold user
 	# Include steps Open App,
 	# 1. Click "Continue without registering" button
 	# 2. Verifying the Cold User Home page
 	When I click Recipes from aisle
 	Then I should see Recipes page
-	# Include verification of Title - Receipe
+	# Include verification of Title - Recipes
 	When I type valid search term within search text field 
 	And I select click search button in keyboard
 	Then I validate all the properties in Recipes List page
@@ -257,9 +230,8 @@ Scenario: Recipe_Cold_User can navigate to the nutrition view tab
 	# 4. Each review should be displayed with <review title>,<rating>,<reviewer name>
 	#    <Reviewed on Date>,<review body text> and "Read more" enabled text
 
-@ReviewedOK	
-@Priority1 @Recipe @TC12_RECI_CU
-Scenario: Recipe_Cold_User No results error in advanced search
+@Priority1 @Recipe @TC11_RECI_CU
+Scenario: Recipe_Cold_User verify user can see No results error in advanced search
 	Given I am a cold user
 	# Include steps Open App,
 	# 1. Click "Continue without registering" button
@@ -274,17 +246,16 @@ Scenario: Recipe_Cold_User No results error in advanced search
 	When I select one advanced filter by selecting within filter row
 	Then I should see selected filters are displayed as checked
 	# Include validation before selection
-	# 1. user should only be allowed to select a single filter within each category
+	# 1. User should only be allowed to select a single filter within each category
 	# 2. Categories are meal, ingredient, etc. 
 	When I click Find button
 	Then I should see pop up message
 	# Include the pop up message should contain
 	# 1. If no results are available, Search Results page should display pop up with message 
 	# :"No results matched search terms. Please try again."
-
-@ReviewedOK	 
-@Priority2 @Recipe @TC13_RECI_CU
-Scenario: Recipe_Cold_User can log in from recipe detail page
+ 
+@Priority2 @Recipe @TC12_RECI_CU
+Scenario: Recipe_Cold_User verify user can see Log In from recipe detail page
 	Given I am a cold user
 	# Include steps Open App,
 	# 1. Click "Continue without registering" button
@@ -296,14 +267,33 @@ Scenario: Recipe_Cold_User can log in from recipe detail page
 	Then I validate all the properties in Recipes List page
 	When I select within a recipe row
 	Then I should see Recipe Details page
-	# Include verifying Log in button is available
-	# 1. "Log in" button should be displayed below recipe image
+	# Include verifying Log In button is available
+	# 1. "Log In" button should be displayed below recipe image
 	When I click Log in button
 	Then I should see the Login/Registration page
 
-@ReviewedOK	
+@Priority1 @Recipe @TC13_RECI_CU
+Scenario: Recipe_Cold_User My Recipe box page validation of all the elements
+	Given I am a cold user
+	# Include steps Open App,
+	# 1. Click "Continue without registering" button
+	# 2. Verifying the Cold User Home page
+	When I click Recipes from aisle
+	Then I should see Recipes page
+	When I click recipe box icon
+	Then I should see My Recipe Box page
+	# Include Verification of My Recipe Box page
+	# 1. Recipe Box page should be displayed
+	# 2. Navigation bar should be titled as My Recipe Box
+	# 3. Hamburger icon should appear in left-hand corner of navigation bar
+	# 4. Below navigation bar, Image should be displayed in gray folder image
+	# 5. Below gray image the label "Save and organize your favorite recipes" should be displayed
+	# 6. A button with label name as Create an account should be displayed
+	# 7. Create an account button display a image having zigzag line at the bottom
+	# 8. Log In button should be displayed below image
+	
 @Priority1 @Recipe @TC14_RECI_CU
-Scenario: Recipe_Cold_User from recipe box create an account 
+Scenario: Recipe_Cold_User verify the functionality of create an account and Login button in My Recipe Box
 	Given I am a cold user
 	# Include steps Open App,
 	# 1. Click "Continue without registering" button
@@ -315,43 +305,24 @@ Scenario: Recipe_Cold_User from recipe box create an account
 	# Include Verification of title as My Recipe Box in the navigation bar
 	When I click Create an account
 	Then I should see the registration screen
-	When I click device back button 
-	Then I should see pop-up cancel registration
+	When I click device back button twice
+	Then I should see the pop-up cancel registration
 	When I click Yes in pop-up
-	Then I should see Previously viewed recipe box page
-	# Include verifying Log in
-	# 1. Log in button should be displayed below image
-	When I click Log in button
+	Then I should see previously viewed My Recipe box page	
+	When I click Log In button
 	Then I should see Login pop up dialog
-	# Include validation of button
-	# 1. Login pop up dialog appears with cancel and Login button
-	
-@Need to remove	
-@Priority3 @Recipe @TC15_RECI_CU
-Scenario: Recipe_Cold_User can navigate to recipe box 
-	Given I am a cold user
-	# Include steps Open App,
-	# 1. Click "Continue without registering" button
-	# 2. Verifying the Cold User Home page
-	When I click Recipes from aisle
-	Then I should see Recipes page	
-	When I click recipe box icon
-	Then I should see My Recipe Box page
-	# Include Verification of title as My Recipe Box in the navigation bar
-	When I click device back button
-	Then I should see the previously viewed screen
-### COMMENT : Already covered 
+	# Include validation of buttons in the pop up
+	# 1. Login pop up dialog appears with cancel and Login button 
 
-@ReviewedOK	
-@Priority3 @Recipe @TC16_RECI_CU
-Scenario: Recipe_Cold_User can find the review comments below ingredients in the recipe detail page
+@Priority3 @Recipe @TC15_RECI_CU
+Scenario: Recipe_Cold_User verify the review comments below ingredients in the recipe details page
 	Given I am a cold user
 	# Include steps Open App,
 	# 1. Click "Continue without registering" button
 	# 2. Verifying the Cold User Home page
 	When I click Recipes from aisle
 	Then I should see Recipes page
-	# Include verification of Title - Receipe
+	# Include verification of Title - Recipes
 	When I type valid search term within search text field 
 	And I select click search button in keyboard
 	Then I validate all the properties in Recipes List page
@@ -368,28 +339,5 @@ Scenario: Recipe_Cold_User can find the review comments below ingredients in the
 	# 2. Each review should be displayed with <review title>,<rating>,<reviewer name>
 	# <Reviewed on Date>,<review body text> and "Read more" enabled text
 	When I click device back button
-	Then I should see search results page is displayed as previously viewed
+	Then I should see previously viewed search results page 
 
-
-@ReviewedOK	 
-@Priority1 @Recipe @TC17_RECI_CU
-Scenario: Recipe_Cold_User from My Recipe box page 
-	Given I am a cold user
-	# Include steps Open App,
-	# 1. Click "Continue without registering" button
-	# 2. Verifying the Cold User Home page
-	When I click Recipes from aisle
-	Then I should see Recipes page
-	When I click recipe box icon
-	Then I should see My Recipe Box page
-	# Include Verification of My Recipe Box page
-	# 1. Recipe Box page should be displayed
-	# 1a. Telling them to Log in or Create an account
-	# 2. Navigation bar should be titled as My Recipe Box
-	# 3. Hamburger icon should appear in left-hand corner of navigation bar
-	# 4. Below navigation bar, Image should be displayed in gray folder image
-	# 5. Below gray image the label Save and organize your favorite recipes should be displayed
-	# 6. Labeled text display a button with label name as Create an account
-	# 7. Create an account button display a image having zigzag line at the bottom
-	# 8. Page should contain Log In button
-	
