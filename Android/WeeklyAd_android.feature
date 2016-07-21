@@ -55,7 +55,6 @@ Scenario: Weekly Ad_Cold View Details Page With Search Filter
 	Then I should see Featured Deals page
 		# Includes validations: Title- Featured Deals
 
-
 @Priority2 @WeeklyAd @TC03_WA_CU
 Scenario: Weekly Ad_Cold_View Another Store s Weekly Ad
 	Given I am a Cold User
@@ -74,9 +73,8 @@ Scenario: Weekly Ad_Cold_View Another Store s Weekly Ad
 		# 1. Map view Icon in the action bar
 		# 2. List of Stores and the details
 	And I select a store
-	Then I should see the Store name which was selected 
-		# Includes validations: checking the store name which was selected
-	
+	Then I should see Featured Deals page
+		# Includes validations: Selected store name should get displayed below the searchbox
 	
 @Priority2 @WeeklyAd @TC04_WA_CU
 Scenario: Weekly Ad_Cold Add Multiple Deals to Shopping List
@@ -105,7 +103,6 @@ Scenario: Weekly Ad_Cold Add Multiple Deals to Shopping List
 	Then I see the Toast message
 		# Includes following verifications
 		# Verify the Toast message is as expected
-	
 
 @Priority2 @WeeklyAd @TC05_WA_CU
 Scenario: Weekly Ad_Cold_Select All Deals And Add to List with Category Filter
@@ -143,7 +140,7 @@ Scenario: Weekly Ad_Cold_Select All Deals And Add to List with Category Filter
 		# Includes the verification of Title as My Lists
 	When I select the Weekly Groceries
 	And I see the Deals which are added to the List
-	
+		#Includes verification of Title as Weekly Groceries
 	
 @Priority2 @WeeklyAd @TC06_WA_CU
 Scenario: Weekly Ad_Cold Add to Shopping List from Deal Details Page
@@ -173,7 +170,7 @@ Scenario: Weekly Ad_Cold Add to Shopping List from Deal Details Page
 		# Includes the verification of Title as My Lists
 	When I select the Weekly Groceries
 	And I see the Deals which are added to the List
-	
+		#Includes verification of Title as Weekly Groceries
 
 @Priority1 @WeeklyAd @TC07_WA_HU
 Scenario: Weekly Ad_Hot Search Products With Category Filter And View Details
@@ -219,7 +216,6 @@ Scenario: Weekly Ad_Hot Search Products With Category Filter And View Details
 	Then I see the Featured Deals of selected category
 		#Includes Verify the selected Category name in the Header
 		
-
 @Priority2 @WeeklyAd @TC08_WA_HU
 Scenario: Weekly Ad_Hot_View Another Stores Weekly Ad Deals
 
@@ -241,10 +237,9 @@ Scenario: Weekly Ad_Hot_View Another Stores Weekly Ad Deals
 		# 1. Map view Icon in the action bar
 		# 2. List of Stores and the details
 	When I select a store
-	Then I should see the Store name which was selected 
-		# Includes validations: checking the store name which was selected
+Then I should see Featured Deals page
+		# Includes validations: Selected store name should get displayed below the searchbox
 	
-
 @Priority2 @WeeklyAd @TC09_WA_HU
 Scenario: Weekly Ad_Hot_Add to Shopping List Cancel Then Add Multiple Deals
 
@@ -316,7 +311,7 @@ Scenario: Weekly Ad_Hot_Add All Deals To Shopping List With Category Filter
 	And I see the Deals which are added to the List
 	
 @Priority2 @WeeklyAd @TC11_WA_HU
-Scenario: Weekly Ad_Hot_ Add Item From Item Details Page To A List
+Scenario: Weekly Ad_Hot_Add Item From Item Details Page To A List
 
 	Given I am a Hot User
 		# Includes steps 
@@ -377,7 +372,7 @@ Scenario: Weekly Ad_Hot Search Products Then Add All To List
 		# Includes validations: Title- Featured Deals
 
 @Priority1 @WeeklyAd @TC13_WA_CU
-Scenario: Weekly Ad_Cold user_Verify_SelectYourStore_Page
+Scenario: Weekly Ad_Cold user_Page Validation_SelectYourStore_Page
 	Given I am a Cold User
 		# Include steps to Open App
 		# Click "Continue without registering" button if Login Splash page is displayed 
@@ -397,7 +392,7 @@ Scenario: Weekly Ad_Cold user_Verify_SelectYourStore_Page
 		# 2. Store name
 
 @Priority1 @WeeklyAd @TC14_WA_CU
-Scenario: Weekly Ad_Hot user_Verify_SelectYourStore_Page
+Scenario: Weekly Ad_Hot user_Page Validation_SelectYourStore_Page
 	Given I am a Hot User
 		# Includes steps 
 		# 1. open application and 
@@ -418,7 +413,7 @@ Scenario: Weekly Ad_Hot user_Verify_SelectYourStore_Page
 		# 2. Store name
 
 @Priority1 @WeeklyAd @TC15_WA_CU
-Scenario: Weekly Ad_Cold user_Verify_FeaturedDeals_Page
+Scenario: Weekly Ad_Cold user_Page Validation_FeaturedDeals_Page
 	Given I am a Cold User
 		# Include steps to Open App
 		# 1. Click "Continue without registering" button if Login Splash page is displayed 
@@ -437,7 +432,7 @@ Scenario: Weekly Ad_Cold user_Verify_FeaturedDeals_Page
 		# 7. Store address below the search box
 	
 @Priority1 @WeeklyAd @TC16_WA_HU
-Scenario: Weekly Ad_Hot user_Verify_FeaturedDeals_Page
+Scenario: Weekly Ad_Hot user_Page Validation_FeaturedDeals_Page
 	
 	Given I am a Hot User
 		# Includes steps 
@@ -458,7 +453,7 @@ Scenario: Weekly Ad_Hot user_Verify_FeaturedDeals_Page
 		# 7. Store address below the search box
 
 @Priority1 @WeeklyAd @TC17_WA_CU
-Scenario: Weekly Ad_Cold user_Verify_Item Details_Page
+Scenario: Weekly Ad_Cold user_Page Validation_Item Details_Page
 	Given I am a Cold User
 		# Include steps to Open App
 		# 1. Click "Continue without registering" button if Login Splash page is displayed 
@@ -474,7 +469,7 @@ Scenario: Weekly Ad_Cold user_Verify_Item Details_Page
 		# 3. + icon in the action bar
 	
 @Priority1 @WeeklyAd @TC18_WA_HU
-Scenario: Weekly Ad_Hot user_Verify_Item Details_Page
+Scenario: Weekly Ad_Hot user_Page Validation_Item Details_Page
 	Given I am a Hot User
 		# Includes steps 
 		# 1. open application and 
@@ -491,7 +486,7 @@ Scenario: Weekly Ad_Hot user_Verify_Item Details_Page
 		# 3. + icon in the action bar
 
 @Priority1 @WeeklyAd @TC19_WA_CU
-Scenario: Weekly Ad_Cold User_Add To List
+Scenario: Weekly Ad_Cold User_Page Validation_Add To List
 	Given I am a Cold User
 		# Include steps to Open App
 		# 1. Click "Continue without registering" button if Login Splash page is displayed 
@@ -509,7 +504,7 @@ Scenario: Weekly Ad_Cold User_Add To List
 		# 3. Cancel and Add buttons
 	
 @Priority1 @WeeklyAd @TC20_WA_HU
-Scenario: Weekly Ad_Hot user_Add To List
+Scenario: Weekly Ad_Hot user_Page Validation_Add To List
 	Given I am a Hot User
 		# Includes steps 
 		# 1. open application and 
@@ -525,4 +520,3 @@ Scenario: Weekly Ad_Hot user_Add To List
 		# 1. Title as Add to List
 		# 2. List names
 		# 3. Cancel and Add buttons
-	
