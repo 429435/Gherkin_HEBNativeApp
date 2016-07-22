@@ -4,7 +4,7 @@ Feature: H-E-B Weekly Ad page feature
 Scenario: Weekly Ad_Cold View Details Page With Category Filter
 	
 	Given I am a Cold User
-		# Include steps to Open App
+		# Include steps to Open app
 		# 1. Click "Continue without registering" button if Login Splash page is displayed 
 	Then I navigate to Featured Deals page in Weekly Ad
 		# 2. Click on Weekly Ad from aisle 
